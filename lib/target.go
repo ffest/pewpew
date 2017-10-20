@@ -36,16 +36,17 @@ type (
 		//String that is the content of the HTTP body. Empty string is no body.
 		Body string
 		//A location on disk to read the HTTP body from. Empty string means it will not be read.
-		BodyFilename    string
-		Headers         string
-		Cookies         string
-		UserAgent       string
-		BasicAuth       string
-		Compress        bool
-		KeepAlive       bool
-		FollowRedirects bool
-		NoHTTP2         bool
-		EnforceSSL      bool
+		BodyFilename        string
+		Headers             string
+		Cookies             string
+		UserAgent           string
+		BasicAuth           string
+		Compress            bool
+		KeepAlive           bool
+		FollowRedirects     bool
+		NoHTTP2             bool
+		EnforceSSL          bool
+		MaxIdleConnsPerHost int
 	}
 )
 

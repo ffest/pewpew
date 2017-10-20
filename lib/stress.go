@@ -179,7 +179,7 @@ func validateStressConfig(s StressConfig) error {
 		return errors.New("concurrency must be greater than zero")
 	}
 	if s.Concurrency > s.Count {
-		return errors.New("concurrency must be higher than request count")
+		return errors.New("request count must be greater than concurrency")
 	}
 
 	for _, target := range s.Targets {

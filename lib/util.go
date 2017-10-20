@@ -142,6 +142,7 @@ func createClient(target Target) *http.Client {
 	tr.TLSClientConfig = &tls.Config{InsecureSkipVerify: !target.EnforceSSL}
 	tr.DisableCompression = !target.Compress
 	tr.DisableKeepAlives = !target.KeepAlive
+	tr.MaxIdleConnsPerHost = target.MaxIdleConnsPerHost
 	if target.NoHTTP2 {
 		tr.TLSNextProto = make(map[string](func(string, *tls.Conn) http.RoundTripper))
 	} else {

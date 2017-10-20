@@ -64,6 +64,7 @@ func init() {
 	RootCmd.PersistentFlags().BoolP("quiet", "q", false, "Do not print while requests are running.")
 	RootCmd.PersistentFlags().BoolP("verbose", "v", false, "Print extra troubleshooting info.")
 	RootCmd.PersistentFlags().Int("cpu", runtime.GOMAXPROCS(0), "Number of CPUs to use.")
+	RootCmd.PersistentFlags().Int("max-idle-coon-per-host", 10000, "Max open idle connections per host.")
 
 	viper.BindPFlags(RootCmd.PersistentFlags())
 

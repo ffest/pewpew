@@ -61,6 +61,7 @@ var stressCmd = &cobra.Command{
 				stressCfg.Targets[i].FollowRedirects = viper.GetBool("follow-redirects")
 				stressCfg.Targets[i].NoHTTP2 = viper.GetBool("no-http2")
 				stressCfg.Targets[i].EnforceSSL = viper.GetBool("enforce-ssl")
+				stressCfg.Targets[i].MaxIdleConnsPerHost = viper.GetInt("max-idle-coon-per-host")
 			}
 		} else {
 			//set non-URL target settings
@@ -113,6 +114,9 @@ var stressCmd = &cobra.Command{
 				}
 				if _, set := targetMapVals["EnforceSSL"]; !set {
 					stressCfg.Targets[i].EnforceSSL = viper.GetBool("enforce-ssl")
+				}
+				if _, set := targetMapVals["MaxIdleConnsPerHost"]; !set {
+					stressCfg.Targets[i].MaxIdleConnsPerHost = viper.GetInt("max-idle-coon-per-host")
 				}
 			}
 		}
